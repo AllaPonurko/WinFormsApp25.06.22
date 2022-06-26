@@ -31,7 +31,10 @@ namespace WinFormsApp25._06._22
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelPeriod = new System.Windows.Forms.Label();
+            this.labelDollarRate = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -44,10 +47,12 @@ namespace WinFormsApp25._06._22
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.labelDollarRate = new System.Windows.Forms.Label();
-            this.labelPeriod = new System.Windows.Forms.Label();
+            this.checkBox30 = new System.Windows.Forms.CheckBox();
+            this.checkBox20 = new System.Windows.Forms.CheckBox();
+            this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,9 +63,27 @@ namespace WinFormsApp25._06._22
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Location = new System.Drawing.Point(199, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(589, 422);
+            this.panel1.Size = new System.Drawing.Size(601, 422);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // labelPeriod
+            // 
+            this.labelPeriod.AutoSize = true;
+            this.labelPeriod.Location = new System.Drawing.Point(541, 371);
+            this.labelPeriod.Name = "labelPeriod";
+            this.labelPeriod.Size = new System.Drawing.Size(41, 15);
+            this.labelPeriod.TabIndex = 2;
+            this.labelPeriod.Text = "Period";
+            // 
+            // labelDollarRate
+            // 
+            this.labelDollarRate.AutoSize = true;
+            this.labelDollarRate.Location = new System.Drawing.Point(8, 4);
+            this.labelDollarRate.Name = "labelDollarRate";
+            this.labelDollarRate.Size = new System.Drawing.Size(61, 15);
+            this.labelDollarRate.TabIndex = 1;
+            this.labelDollarRate.Text = "Dollar rate";
             // 
             // btnExit
             // 
@@ -71,6 +94,13 @@ namespace WinFormsApp25._06._22
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(410, 2);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(131, 23);
+            this.dateTimePicker1.TabIndex = 3;
             // 
             // toolStrip1
             // 
@@ -175,34 +205,54 @@ namespace WinFormsApp25._06._22
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.checkBox30);
+            this.panel2.Controls.Add(this.checkBox20);
+            this.panel2.Controls.Add(this.checkBox10);
             this.panel2.Location = new System.Drawing.Point(0, 28);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 422);
             this.panel2.TabIndex = 2;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // labelDollarRate
+            // checkBox30
             // 
-            this.labelDollarRate.AutoSize = true;
-            this.labelDollarRate.Location = new System.Drawing.Point(8, 4);
-            this.labelDollarRate.Name = "labelDollarRate";
-            this.labelDollarRate.Size = new System.Drawing.Size(61, 15);
-            this.labelDollarRate.TabIndex = 1;
-            this.labelDollarRate.Text = "Dollar rate";
+            this.checkBox30.AutoSize = true;
+            this.checkBox30.Location = new System.Drawing.Point(4, 157);
+            this.checkBox30.Name = "checkBox30";
+            this.checkBox30.Size = new System.Drawing.Size(67, 19);
+            this.checkBox30.TabIndex = 4;
+            this.checkBox30.Text = "30 дней";
+            this.checkBox30.UseVisualStyleBackColor = true;
+            this.checkBox30.CheckedChanged += new System.EventHandler(this.checkBox30_CheckedChanged);
             // 
-            // labelPeriod
+            // checkBox20
             // 
-            this.labelPeriod.AutoSize = true;
-            this.labelPeriod.Location = new System.Drawing.Point(541, 371);
-            this.labelPeriod.Name = "labelPeriod";
-            this.labelPeriod.Size = new System.Drawing.Size(41, 15);
-            this.labelPeriod.TabIndex = 2;
-            this.labelPeriod.Text = "Period";
+            this.checkBox20.AutoSize = true;
+            this.checkBox20.Location = new System.Drawing.Point(4, 131);
+            this.checkBox20.Name = "checkBox20";
+            this.checkBox20.Size = new System.Drawing.Size(67, 19);
+            this.checkBox20.TabIndex = 2;
+            this.checkBox20.Text = "20 дней";
+            this.checkBox20.UseVisualStyleBackColor = true;
+            this.checkBox20.CheckedChanged += new System.EventHandler(this.checkBox20_CheckedChanged);
+            // 
+            // checkBox10
+            // 
+            this.checkBox10.AutoSize = true;
+            this.checkBox10.Location = new System.Drawing.Point(3, 105);
+            this.checkBox10.Name = "checkBox10";
+            this.checkBox10.Size = new System.Drawing.Size(67, 19);
+            this.checkBox10.TabIndex = 1;
+            this.checkBox10.Text = "10 дней";
+            this.checkBox10.UseVisualStyleBackColor = true;
+            this.checkBox10.CheckedChanged += new System.EventHandler(this.checkBox10_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
@@ -212,6 +262,8 @@ namespace WinFormsApp25._06._22
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,6 +287,10 @@ namespace WinFormsApp25._06._22
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label labelPeriod;
         private System.Windows.Forms.Label labelDollarRate;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.CheckBox checkBox30;
+        private System.Windows.Forms.CheckBox checkBox20;
+        private System.Windows.Forms.CheckBox checkBox10;
     }
 }
 

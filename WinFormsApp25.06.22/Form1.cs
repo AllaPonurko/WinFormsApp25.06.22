@@ -43,17 +43,55 @@ namespace WinFormsApp25._06._22
             path.AddLine(2, 400, 600,400);
             path.CloseFigure();
             g.DrawPath(new Pen(Color.Blue, 3), path);
+            List<Point> points = new List<Point>();
+            Random r = new Random();
+            for(int i = 0, x=2,y=300; i < length ; i++,x+=40,y=300+r.Next(1,5))
+            {
+                points[i]=new Point(x,y);
+                points.Add(points[i]);
+            }
+            for(int i=0;i<length;i++)
+            {
+                g.DrawLine(new Pen(Color.Red, 3), points[i], points[i + 1]);
+            }
+            for (int i = 0; i < length ; i++)
+            {
+                g.FillEllipse(Brushes.Black, points[i].X,points[i].Y,5f,5f);
+            }
 
-
-            
             //path.AddArc(180, 30, 60, 60, 0, -170);
 
             g.Dispose();
         }
-
+           int length =10;
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();        
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox10_CheckedChanged(object sender, EventArgs e)
+        {
+            length = 10;
+        }
+
+        private void checkBox20_CheckedChanged(object sender, EventArgs e)
+        {
+            length = 20;
+        }
+
+        private void checkBox30_CheckedChanged(object sender, EventArgs e)
+        {
+            length = 30;
         }
     }
 }
