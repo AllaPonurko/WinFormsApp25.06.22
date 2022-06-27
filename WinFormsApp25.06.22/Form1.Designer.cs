@@ -47,9 +47,9 @@ namespace WinFormsApp25._06._22
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.checkBox30 = new System.Windows.Forms.CheckBox();
-            this.checkBox20 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.labelSelect = new System.Windows.Forms.Label();
+            this.txtNumber = new System.Windows.Forms.TextBox();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -205,47 +205,40 @@ namespace WinFormsApp25._06._22
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.checkBox30);
-            this.panel2.Controls.Add(this.checkBox20);
-            this.panel2.Controls.Add(this.checkBox10);
+            this.panel2.Controls.Add(this.btnConfirm);
+            this.panel2.Controls.Add(this.txtNumber);
+            this.panel2.Controls.Add(this.labelSelect);
             this.panel2.Location = new System.Drawing.Point(0, 28);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 422);
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // checkBox30
+            // labelSelect
             // 
-            this.checkBox30.AutoSize = true;
-            this.checkBox30.Location = new System.Drawing.Point(4, 157);
-            this.checkBox30.Name = "checkBox30";
-            this.checkBox30.Size = new System.Drawing.Size(67, 19);
-            this.checkBox30.TabIndex = 4;
-            this.checkBox30.Text = "30 дней";
-            this.checkBox30.UseVisualStyleBackColor = true;
-            this.checkBox30.CheckedChanged += new System.EventHandler(this.checkBox30_CheckedChanged);
+            this.labelSelect.AutoSize = true;
+            this.labelSelect.Location = new System.Drawing.Point(12, 4);
+            this.labelSelect.Name = "labelSelect";
+            this.labelSelect.Size = new System.Drawing.Size(187, 15);
+            this.labelSelect.TabIndex = 3;
+            this.labelSelect.Text = "Enter number of days from 1 to 30";
             // 
-            // checkBox20
+            // txtNumber
             // 
-            this.checkBox20.AutoSize = true;
-            this.checkBox20.Location = new System.Drawing.Point(4, 131);
-            this.checkBox20.Name = "checkBox20";
-            this.checkBox20.Size = new System.Drawing.Size(67, 19);
-            this.checkBox20.TabIndex = 2;
-            this.checkBox20.Text = "20 дней";
-            this.checkBox20.UseVisualStyleBackColor = true;
-            this.checkBox20.CheckedChanged += new System.EventHandler(this.checkBox20_CheckedChanged);
+            this.txtNumber.Location = new System.Drawing.Point(13, 37);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Size = new System.Drawing.Size(100, 23);
+            this.txtNumber.TabIndex = 4;
             // 
-            // checkBox10
+            // btnConfirm
             // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(3, 105);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(67, 19);
-            this.checkBox10.TabIndex = 1;
-            this.checkBox10.Text = "10 дней";
-            this.checkBox10.UseVisualStyleBackColor = true;
-            this.checkBox10.CheckedChanged += new System.EventHandler(this.checkBox10_CheckedChanged);
+            this.btnConfirm.Location = new System.Drawing.Point(13, 98);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirm.TabIndex = 5;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // Form1
             // 
@@ -288,9 +281,9 @@ namespace WinFormsApp25._06._22
         private System.Windows.Forms.Label labelPeriod;
         private System.Windows.Forms.Label labelDollarRate;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.CheckBox checkBox30;
-        private System.Windows.Forms.CheckBox checkBox20;
-        private System.Windows.Forms.CheckBox checkBox10;
+        private System.Windows.Forms.Label labelSelect;
+        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.TextBox txtNumber;
     }
 }
 

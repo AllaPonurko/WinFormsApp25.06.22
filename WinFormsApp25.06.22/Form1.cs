@@ -43,27 +43,36 @@ namespace WinFormsApp25._06._22
             path.AddLine(2, 400, 600,400);
             path.CloseFigure();
             g.DrawPath(new Pen(Color.Blue, 3), path);
-            List<Point> points = new List<Point>();
+            List<Point> points = new List<Point>(); 
+            Default_Length();
             Random r = new Random();
-            for(int i = 0, x=2,y=300; i < length ; i++,x+=40,y=300+r.Next(1,5))
-            {
-                points[i]=new Point(x,y);
-                points.Add(points[i]);
+              int x = 2, y = 300;
+            foreach (Point item in points)
+            {while (points.Count!=length)
+                {
+                    Point p = new Point(x, y);
+                    points.Add(p);
+                    x += 40; y = 300 + r.Next(1, 5); 
+                }
             }
-            for(int i=0;i<length;i++)
+            //foreach (Point item in points)
+            //{
+            //    g.DrawLine(new Pen(Color.Red, 3), item, item.);
+            //}
+            foreach (Point item in points)
             {
-                g.DrawLine(new Pen(Color.Red, 3), points[i], points[i + 1]);
-            }
-            for (int i = 0; i < length ; i++)
-            {
-                g.FillEllipse(Brushes.Black, points[i].X,points[i].Y,5f,5f);
+                g.FillEllipse(Brushes.Black,item.X,item.Y,5f,5f);
             }
 
             //path.AddArc(180, 30, 60, 60, 0, -170);
 
             g.Dispose();
         }
-           int length =10;
+          public int length ;
+        private void Default_Length()
+        {
+            length = 30;
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();        
@@ -79,19 +88,17 @@ namespace WinFormsApp25._06._22
 
         }
 
-        private void checkBox10_CheckedChanged(object sender, EventArgs e)
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
-            length = 10;
-        }
+            if (txtNumber.Text.Length != 0)
+            { 
+                length = Convert.ToInt32(txtNumber.Text); 
 
-        private void checkBox20_CheckedChanged(object sender, EventArgs e)
-        {
-            length = 20;
-        }
-
-        private void checkBox30_CheckedChanged(object sender, EventArgs e)
-        {
-            length = 30;
+            }
+            else
+            {
+                MessageBox.Show("Enter the number!");
+            }
         }
     }
 }
